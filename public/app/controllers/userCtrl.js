@@ -22,6 +22,7 @@ angular.module('usersControllers',[])
 	}
 })
 
+
 .controller('idController',function($scope,$http,$routeParams){
 	console.log('idController is running');
 	$scope.Single = function(){
@@ -37,6 +38,23 @@ angular.module('usersControllers',[])
 	$scope.Edit = function(){
 		var id = $routeParams.id;
 		$http.put('/api/edit/'+id,$scope.sport)
+	}
+})
+.controller('worldController',function($scope,$http){
+	console.log("worldController")
+	$scope.Sport=function(){
+		$http.get('/api/world').then(function(response){
+			$scope.sports =response.data;
+		})
+	}
+})
+.controller('lifestyleController',function($scope,$http){
+	console.log("lifestyleController");
+	
+	$scope.Sport=function(){
+		$http.get('/api/lifestyle').then(function(response){
+			$scope.sports =response.data;
+		})
 	}
 });
 /*.controller('deleteController',function($scope,$http,$routeParams){

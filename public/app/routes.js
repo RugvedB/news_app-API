@@ -17,6 +17,7 @@ angular.module('appRoutes',['ngRoute'])
 		controller:"sportController"
 
 	})
+
 	.when('/view',{
 		templateUrl:"app/views/pages/view.html",
 		controller:"displayController"
@@ -33,6 +34,14 @@ angular.module('appRoutes',['ngRoute'])
 	})
 	.when('/delete/:id',{
 		controller:'deleteController'
+	})
+	.when('/world',{
+		templateUrl:"app/views/pages/sports.html",
+		controller:"worldController"
+	})
+	.when('/lifestyle',{
+		templateUrl:"app/viwes/pages/sports.html",
+		controller: "lifestyleController"
 	})
 	.otherwise('/',{
 		redirectTo:"/"

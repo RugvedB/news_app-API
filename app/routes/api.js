@@ -32,6 +32,22 @@ module.exports = function(router){
 			res.json(sports);
 		});
 	});
+
+	router.get('/world',function(req,res){
+		Sport.find({'genres':'World'},function(err,sports){
+			if(err)
+				throw err;
+			res.json(sports);
+		});
+	});
+	router.get('/lifestyle',function(req,res){
+		console.log("lifestyle router is running");
+		Sport.find({'genres':'LifeStyle'},function(err,sports){
+			if(err)
+				throw err;
+			res.json(sports);
+		});
+	});
 	router.get('/details/:_id',function(req,res){
 			console.log('api is running');
 			Sport.findById(req.params._id,function(err,sport){
